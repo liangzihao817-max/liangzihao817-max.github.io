@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>郭耀阳专属祝福</title>
+    <style>
+        body { margin: 0; padding: 0; overflow: hidden; background: #fdf2f8; }
+        .blessing { position: absolute; font-size: 24px; font-weight: bold; color: #e53e3e; animation: float 3s ease-in-out infinite; }
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(-20px) rotate(5deg); opacity: 0.8; }
+            100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 祝福内容
+        const blessings = [
+            "TO 郭耀阳：顺顺利利",
+            "TO 郭耀阳：天天开心",
+            "TO 郭耀阳：早日脱单"
+        ];
+        // 生成满屏祝福
+        function createBlessing() {
+            const div = document.createElement('div');
+            div.className = 'blessing';
+            div.innerText = blessings[Math.floor(Math.random() * blessings.length)];
+            // 随机位置
+            div.style.left = Math.random() * 100 + 'vw';
+            div.style.top = Math.random() * 100 + 'vh';
+            // 随机颜色
+            const colors = ['#e53e3e', '#ed8936', '#48bb78', '#38b2ac', '#4299e1', '#9f7aea'];
+            div.style.color = colors[Math.floor(Math.random() * colors.length)];
+            // 随机动画时长
+            div.style.animationDuration = (2 + Math.random() * 3) + 's';
+            document.body.appendChild(div);
+            // 3秒后移除，避免卡顿
+            setTimeout(() => div.remove(), 3000);
+        }
+        // 每隔300毫秒生成一个祝福
+        setInterval(createBlessing, 300);
+    </script>
+</body>
+</html>
